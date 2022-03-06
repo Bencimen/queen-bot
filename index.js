@@ -171,4 +171,4 @@ bot.on("ready", async () => {
 })
 
 
-bot.login(config.token)
+bot.login(pricess.env.BOT_TOKEN)
