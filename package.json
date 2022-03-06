@@ -1,0 +1,22 @@
+{
+  "name": "queen-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "~coerin~",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "ascii": "^1.0.0",
+    "ascii-table": "^0.0.9",
+    "discord-player": "^4.1.1",
+    "discord.js": "^12.5.3",
+    "ffmpeg-static": "^4.4.1",
+    "fs": "^0.0.1-security",
+    "jsonfile": "^6.1.0",
+    "random": "^3.0.6"
+  }
+}
