@@ -10,39 +10,7 @@ const { Player } = require("discord-player");
 const player = new Player(bot);
 bot.player = player;
 
-////////////////////////////////////////////////////////////////////////
 
-bot.commands = new Discord.Collection();
-bot.aliases = new Discord.Collection();
-
-bot.categoires = fs.readdirSync("./commands/");
-
-["command"].forEach(handler => {
-    require(`./handlers/${handler}`)(bot)
-});
-
-
-bot.on("message", async (message) => {
-    let prefix = config.prefix;
-
-    if (message.author.bot) return;
-    if (!message.guild) return;
-    if (!message.content.startsWith(prefix)) return;
-    if (!message.member) message.member = await message.guild.fetchMember(message)
-
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const cmd = args.shift().toLowerCase();
-
-    if (cmd.length == 0) return;
-
-    let command = bot.commands.get(cmd);
-    if (!command) command = bot.commands.get(bot.aliases.get(cmd));
-
-    if (command)
-        command.run(bot, message, args);
-});
-
-////////////////////////////////////////////////////////////////////////
 
 if (fs.existsSync("stats.json")) {
     stats = jsonfile.readFileSync("stats.json");
